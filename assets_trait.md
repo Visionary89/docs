@@ -59,3 +59,15 @@ static::addScript(string $handle, string $script, array $dependency): return sel
 ```php
 static::withPackage(string|array $packages): return self
 ```
+
+#### Простой пример
+Подключение своего скрипта совместно с отображением.
+
+```php
+$display = \AdminDisplay::table();
+...
+$display->addScript(null,'/js/admin.js',['admin-default']);
+
+```
+На всех страницах, где используется это отображение, будет подключен файл `/js/admin.js`.
+Третьим параметром указана зависимость основноного скрипта административного раздела, для доступности jquery в подклюаемом скрипте.
